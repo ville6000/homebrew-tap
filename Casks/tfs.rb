@@ -6,25 +6,25 @@ cask "tfs" do
     end
   end
 
-  version "0.8.0"
+  version "0.9.0"
 
   on_macos do
     on_arm do
-      sha256 "ea4cf0525f2a58c99e8917279e4317d609a5c241fdb5f8fb7cc1d34e7fab762f"
+      sha256 "204038690122bb825678757b8da9147b090e55518e49faaef0cfdb4afbc8ffa7"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "6091fd9f475f16f0580c03cdfd1373f95287dc62ba0be1c8822b9581f944999a"
+      sha256 "f0ab7d25ab58fe799e352cbc87dce7eda1ea7dc6493de650f1b902f92bc2071c"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "7aabdbd4c4b0f51a64cca8d00c3e194b13fbd66073db0fd71090be59fdab18b6"
+      sha256 "f776c6f9b47bc1034eded307bb2d634d49be8dc8c07969d1c3a373fa5a32b5bf"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "2fd4e1b76b0889c05c585ae952bddc6cc151ab2a0f6c1be945da9325087f4f71"
+      sha256 "44b6058a8d3f78bb4ff3260efbe802e0d4a7f67a61c1ced3ee2e616640ce4da4"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_linux_amd64.tar.gz"
     end
   end
