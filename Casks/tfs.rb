@@ -3,28 +3,31 @@ cask "tfs" do
   postflight_steps do
     on_macos do
       run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "tfs"], chdir: "."
+      # Ad-hoc sign with the hardened runtime, so other programs can't inject code into
+      # tfs or attach a debugger to read the token it loads from the Keychain.
+      run "/usr/bin/codesign", args: ["--force", "--sign", "-", "--options", "runtime", "tfs"], chdir: "."
     end
   end
 
-  version "0.9.0"
+  version "0.10.0"
 
   on_macos do
     on_arm do
-      sha256 "204038690122bb825678757b8da9147b090e55518e49faaef0cfdb4afbc8ffa7"
+      sha256 "2aa8096c3e5bddbb52415e4698809e0f61c6e676e53441b9fefb22dde3c6ae19"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "f0ab7d25ab58fe799e352cbc87dce7eda1ea7dc6493de650f1b902f92bc2071c"
+      sha256 "d9bcb78ad5cc4858535913f27fed1f9b043d3b637c15b2af57903d1deb3bff80"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "f776c6f9b47bc1034eded307bb2d634d49be8dc8c07969d1c3a373fa5a32b5bf"
+      sha256 "467d079074872d247aa88f428d038f33bc37edd694452f032f8b911a0ce017e8"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "44b6058a8d3f78bb4ff3260efbe802e0d4a7f67a61c1ced3ee2e616640ce4da4"
+      sha256 "045c361543e4b066033a4e62206333ce6b156ab5c50952e8298c0d498eb56fb4"
       url "https://github.com/ville6000/tfs/releases/download/v#{version}/tfs_linux_amd64.tar.gz"
     end
   end
